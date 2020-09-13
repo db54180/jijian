@@ -1,0 +1,154 @@
+<!DOCTYPE>
+<html>
+<head>
+  <!--引入外部的css文件-->
+        <link rel="stylesheet" href="/../../../../Css/layout.css" />
+        
+        <!--引入外部的js文件-->
+        <script type="text/javascript" src="/../../../../Js/jquery.js" ></script>
+		<script type="text/javascript" src="/../../../../Js/menu.js" ></script>
+
+</head>
+<body>
+  <div class="OA_menu">
+  	<h1 class="OA_title1"></h1>
+    <ul class="OA_Lmenu">
+      
+       <li class="OA_Lmenu_li">
+             <a href="#">项目管理</a>
+             <ul class="OA_Lmenu_ul" style="display:none;">
+             <li><a href="/Index/Project/liucheng" target="main">新建流程</a></li>   
+             <li><a href="/Index/Project/add_project" target="main">新建项目</a></li>
+            
+                
+             <li><a href="/Index/Project/project" target="main">管理项目</a></li>
+             <li><a href="/Index/Project/shenpi" target="main">项目审批</a></li>
+          
+             </ul>
+       </li>
+      
+       <li class="OA_Lmenu_li">
+       	  <a href="#">信息档案</a>
+          <ul class="OA_Lmenu_ul" style="display:none;">
+             <if condition="$son_2[0] eq '1'">
+             <li><a href="__APP__/FileCabinet/fileCabinet" target="main">个人文件柜</a></li>
+             </if>
+			 <if condition="$son_2[1] eq '1'">
+             <li><a href="__APP__/Goods/goods" target="main">公司物品管理</a></li>
+             </if>
+			 <if condition="$son_2[1] eq '1'">
+             <li><a href="__APP__/Goods/regime" target="main">公司制度规章</a></li>
+             </if>
+          </ul>
+       </li>
+    
+       <li class="OA_Lmenu_li">
+          <a href="#">会议管理</a>
+          <ul class="OA_Lmenu_ul" style="display:none;">  
+             <if condition="$son_3[0] eq '1'">      	 
+             <li><a href="__APP__/Meeting/meetingArrange" target="main">会议安排</a></li>
+             </if>
+             <if condition="$son_3[1] eq '1'">      	 
+             <li><a href="__APP__/Meeting/meetingList" target="main">会议管理</a></li>
+             </if>
+             <if condition="$son_3[2] eq '1'">
+             <li><a href="__APP__/Meeting/meetingAppointment" target="main">会议室预约</a></li>
+             </if>
+             <if condition="$son_3[3] eq '1'">
+             <li><a href="__APP__/Meeting/meetingAdd" target="main">会议室添加</a></li>
+             </if>
+             <if condition="$son_3[4] eq '1'">
+             <li><a href="__APP__/Meeting/meetingManage" target="main">会议室管理</a></li>
+             </if>
+          </ul>
+       </li>
+     
+       <li class="OA_Lmenu_li">
+      		 <a href="#">员工管理</a>
+             <ul class="OA_Lmenu_ul" style="display:none;">   
+             <if condition="$son_4[0] eq '1'">         
+             <li><a href="__APP__/EmployeesInfo/add_employees" target="main">上传个人简历</a></li>
+             </if>
+             <if condition="$son_4[1] eq '1'">         
+             <li><a href="__APP__/EmployeesInfo/employeesInfo" target="main">管理员工</a></li>
+             </if>
+             <if condition="$son_4[2] eq '1'">         
+             <li><a href="__APP__/EmployeesInfo/tasks" target="main">任务分派</a></li>
+             </if>
+             <if condition="$son_4[3] eq '1'">         
+             <li><a href="__APP__/EmployeesInfo/tasks_list" target="main">任务管理</a></li>
+             </if>
+             <if condition="$son_4[4] eq '1'">         
+             <li><a href="__APP__/EmployeesInfo/release_notice" target="main">紧急通告发布</a></li>
+             </if>
+             </ul>
+       </li>
+ 
+       <li class="OA_Lmenu_li">
+             <a href="#">客户管理</a>
+             <ul class="OA_Lmenu_ul" style="display:none;">
+             <if condition="$son_5[0] eq '1'">         
+             <li><a href="__APP__/Customer/customer_add" target="main">新建客户</a></li>
+             </if>
+             <if condition="$son_5[1] eq '1'">         
+             <li><a href="__APP__/Customer/customer" target="main">管理客户</a></li>
+             </if>
+             <if condition="$son_5[2] eq '1'">         
+             <li><a href="__APP__/Customer/shared_transfer" target="main">共享客户</a></li>
+             </if>
+             </ul>
+       </li>
+ 
+
+  
+       <li class="OA_Lmenu_li">
+             <a href="#">公共区域</a>
+             <ul class="OA_Lmenu_ul" style="display:none;">
+             <if condition="$son_6[0] eq '1'">         
+             <li><a href="__APP__/ChatChannel/publicChannel" target="main">公共频道</a></li>
+             </if>
+             <if condition="$son_6[1] eq '1'">         
+             <li><a href="__APP__/ChatChannel/companyPhoto" target="main">公司相册</a></li>
+             </if>
+             <if condition="$son_6[2] eq '1'">         
+             <li><a href="__APP__/Vote/user_vote" target="main">公共投票</a></li>
+             </if>
+             </ul>
+       </li>
+  
+       <li class="OA_Lmenu_li">
+             <a href="#">OA系统设置</a>
+             <ul class="OA_Lmenu_ul" style="display:none;">
+             <if condition="$son_7[0] eq '1'">         
+             <li><a href="__APP__/System/OA_system_manage" target="main">OA平台管理</a></li>
+             </if>
+             <if condition="$son_7[1] eq '1'">         
+             <li><a href="__APP__/System/OA_structure" target="main">OA公司结构</a></li>
+             </if>
+             <if condition="$son_7[2] eq '1'">         
+             <li><a href="__APP__/System/OA_user_manage" target="main">OA用户管理</a></li>
+             </if>
+             <if condition="$son_7[3] eq '1'">         
+             <li><a href="__APP__/System/OA_database" target="main">OA数据库管理</a></li>
+             </if>
+             <if condition="$son_7[4] eq '1'">         
+             <li><a href="__APP__/Permissions/permissions" target="main">OA权限管理</a></li>
+             </if>
+             <if condition="$son_7[5] eq '1'">         
+             <li><a href="__APP__/System/OA_company_photo" target="main">OA公司相册管理</a></li>
+             </if>
+             <if condition="$son_7[6] eq '1'">         
+             <li><a href="__APP__/Vote/vote_list" target="main">OA投票管理</a></li>
+             </if>
+             <if condition="$son_7[7] eq '1'">         
+             <li><a href="__APP__/System/OA_log_manage" target="main">OA日志管理</a></li>
+             </if>
+             </ul>
+       </li>
+ 
+       
+    </ul>
+    <h1 class="OA_title2"></h1>
+  </div>
+</body>
+</html>

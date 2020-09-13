@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新建流程</title>
+	<h1>新建流程</h1>
+</head>
+<body>
+	<div>
+		请选择节点人员：
+		<select id="user">
+		
+		{volist name="u_info" id="v" key="k"}
+		<option value={$v.u_username}>{$v.u_name}</option>
+		
+		
+		 {/volist}
+
+			
+		</select>
+		<input type="button" value="增加" id="add">
+	</div>
+	<div id="yixuan">
+		<?php
+		Require_once("DB.php");
+		if (!empty($_SESSION['arr'])) {
+			$arr= $_SESSION['arr'];
+		$conn = new Mysql();
+		
+		foreach ($arr as $key => $value) {
+			$sql = "select name from lc_users where uid = '{$value}'";	
+			$rusule = $conn->sell($sql);	 	
+		 	
+		 	echo $key."---".$rusule['name'].'&nbsp;&nbsp;&nbsp';
+		 	echo"<input type='button' onclick='del(".$key.");'value='删除''><br>";
+
+		 } 
+		}
+
+		 ?>
+	</div>
+
+	<div>请输入流程名称：
+		
+			<input type="text" name="code" id="save">
+			<input type="button" value="保存" onclick="save()">
+			
+		
+	</div>
+
+	<script>
+		var odv = document.getElementById('add');
+		function success(data) {
+				alert(data);
+				window.location.href="/Index/Project/liucheng";
+			}
+		
+
+		odv.onclick = function () {
+			var sel = document.getElementById('user').value;// body...
+		
+			var xml = new XMLHttpRequest();
+			xml.onreadystatechange =function () {
+				if (xml.readyState == 4 & xml.status ==200) {
+					success(xml.responseText);
+				}
+			
+
+			
+
+
+			}
+			xml.open('post','{:url('index/project/chuli')}');
+		    xml.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		    //xml.send("name="+sel);
+		    xml.send("name="+sel+"&type=0");//增加按钮
+
+			
+		} 
+
+		function del(n) {
+			var del = new XMLHttpRequest();
+			del.onreadystatechange = function () {
+				if(del.readyState == 4 &del.status == 200){
+					success(del.responseText);
+			}
+		}
+
+		del.open('post','chuli.php');
+		del.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		del.send("name="+n+"&type=1");
+
+	    }//删除按钮
+
+	    function save() {
+	    	var sav = document.getElementById('save');
+	    	if (sav.value) {
+	    		var savl = new XMLHttpRequest();
+			savl.onreadystatechange = function () {
+				if(savl.readyState == 4 &savl.status == 200){
+					success(savl.responseText);
+			}
+		}
+
+		savl.open('post','chuli.php');
+		savl.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		savl.send("name="+sav.value+"&type=2");
+	}
+           else{
+           	alert("流程名称不能为空");
+           }
+	    	
+	    }
+
+
+
+
+		
+
+
+
+
+
+
+
+		
+
+	</script>
+
+
+
+</body>
+</html>
